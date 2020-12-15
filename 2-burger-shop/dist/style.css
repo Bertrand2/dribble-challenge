@@ -1,15 +1,17 @@
 * {
   padding: 0;
   margin: 0;
+  list-style: none;
+  text-decoration: none;
+  color: #222;
 }
 
 body {
   min-height: 100vw;
   padding: 20px;
-  background-color: #ccc;
+  background-color: #cec;
 }
-
-main {
+body main {
   width: 100%;
   min-height: 90vh;
   background-color: #fff;
@@ -17,8 +19,10 @@ main {
   border-radius: 15px;
   position: relative;
 }
-
-.icon {
+body .main-content {
+  padding-left: 60px;
+}
+body .icon {
   width: 1.5rem;
 }
 
@@ -26,7 +30,7 @@ main {
 MIXINS
 =========*/
 /*=========
-ASIDE
+SPECIFIC MODIFICATIONS
 =========*/
 .aside {
   position: absolute;
@@ -34,27 +38,184 @@ ASIDE
   height: 100%;
   width: 50px;
   border-radius: 15px 0 0 15px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cec;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 .aside__search {
   position: absolute;
   top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
 }
 .aside__opener {
-  background-color: #e6e6e6;
+  background-color: #a6e1a6;
   height: 2rem;
   width: 2rem;
   border-radius: 20%;
   cursor: pointer;
   transition: transform 0.5s ease-in-out;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 .aside__opener:hover {
   transform: rotate(90deg);
+}
+
+.nav {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.nav ul li {
+  margin: 10px;
+}
+.nav__dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-bottom: 0.3rem;
+}
+.nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+.nav__link * {
+  transition: all 0.4s;
+}
+.nav__link.active {
+  color: #93db93;
+}
+.nav__link.active .nav__dot {
+  background-color: #80d580;
+}
+.nav__link:hover {
+  color: #59c859;
+}
+.nav__link:hover * {
+  background-color: #59c859;
+}
+.nav__register {
+  padding: 0 10px;
+}
+
+.shop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 330px;
+  width: 220px;
+  min-height: 330px;
+  min-width: 220px;
+}
+.container.large {
+  height: 750px;
+  width: 500px;
+  min-height: 750px;
+  min-width: 500px;
+}
+.container.small .article__stats {
+  display: none;
+}
+
+.article {
+  border: 1px solid #cec;
+  border-radius: 20px;
+  height: 90%;
+  width: 90%;
+  padding: 1rem;
+}
+.article__images {
+  height: 50%;
+  position: relative;
+}
+.article__images-calories {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border: 1px solid #cec;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+}
+.article__images-calories .quantity {
+  font-size: 0.8rem;
+}
+.article__images-calories .unit {
+  font-size: 0.7rem;
+}
+.article__images.article1 {
+  background-image: url("assets/pictures/maki-menu.jpg");
+  background-size: cover;
+}
+.article__title {
+  height: 10%;
+  background-color: yellow;
+}
+.article__stats {
+  height: 10%;
+  background-color: red;
+}
+.article__description {
+  height: 20%;
+  background-color: yellow;
+}
+.article__shopping {
+  height: 10%;
+  background-color: red;
+}
+
+/*=========
+BUTTON
+=========*/
+.button--log-in {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: #59c859;
+  color: white;
+  transition: all 0.4s;
+}
+.button--log-in:hover {
+  background-color: #a6e1a6;
+  color: #226622;
+}
+.button--sign-up {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: #87d787;
+  color: white;
+  transition: all 0.4s;
+}
+.button--sign-up:hover {
+  background-color: #b5e6b5;
+  color: #319431;
 }

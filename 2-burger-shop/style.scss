@@ -1,42 +1,73 @@
-$border-color: #ccc;
+$main-color: #cec;
+$text-color: #222;
 
 * {
 	padding: 0;
 	margin: 0;
+	list-style: none;
+	text-decoration: none;
+	color: $text-color;
 }
 
 body {
 	min-height: 100vw;
 	padding: 20px;
-	background-color: $border-color;
-}
+	background-color: $main-color;
 
-main {
-	width: 100%;
-	min-height: 90vh;
-	background-color: #fff;
-	box-shadow: #ccc 2px 2px 5px;
-	border-radius: 15px;
-
-	position: relative;
-}
-
-.icon {
-	width: 1.5rem;
+	main {
+		width: 100%;
+		min-height: 90vh;
+		background-color: #fff;
+		box-shadow: #ccc 2px 2px 5px;
+		border-radius: 15px;
+	
+		position: relative;
+	}
+	
+	.main-content{
+		padding-left: 60px;
+	}
+	
+	.icon {
+		width: 1.5rem;
+	}
 }
 
 /*=========
 MIXINS
 =========*/
 
-@mixin centered-content() {
+@mixin centered-content($direction) {
 	display: flex;
+	flex-direction: $direction;
 	align-items: center;
 	justify-content: center;
 }
 
+@mixin button($color, $intensity) {
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+
+	background-color: darken($color, 3*$intensity);
+	color: lighten($color, 10%+$intensity);
+
+	transition: all 0.4s;
+
+	&:hover {
+		background-color: darken($color, $intensity);
+		color: darken($color, 30%+3*$intensity);
+	}
+}
+
+@mixin sizing($size) {
+	height: 1.5*$size;
+	width: $size;
+	min-height: 1.5*$size;
+	min-width: $size;
+}
+
 /*=========
-ASIDE
+SPECIFIC MODIFICATIONS
 =========*/
 
 .aside {
@@ -45,29 +76,201 @@ ASIDE
 	height: 100%;
 	width: 50px;
 	border-radius: 15px 0 0 15px;
-	border-right: 1px solid $border-color;
+	border-right: 1px solid $main-color;
 	
-	@include centered-content();
+	@include centered-content(row);
 	
 	&__search {
 		position: absolute;
 		top: 20px;
+		margin-left: auto;
+		margin-right: auto;
 	
 		cursor: pointer;
 	}
 	
 	&__opener {
-		background-color: lighten($border-color, 10%);
+		background-color: darken($main-color, 10%);
 		height: 2rem;
 		width: 2rem;
 		border-radius: 20%;
 		cursor: pointer;
 		transition: transform 0.5s ease-in-out;
 	
-		@include centered-content();
+		@include centered-content(row);
 
 		&:hover {
 			transform: rotate(90deg);
 		}
+	}
+}
+
+.nav {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+
+		li {
+			margin: 10px;
+		}
+
+		
+	}
+
+	&__dot {
+		height: 8px;
+		width: 8px;
+		border-radius: 50%;
+		margin-bottom: 0.3rem;
+	}
+
+	&__link{
+		@include centered-content(column);
+
+		transition: all 0.4s;
+
+		& *{
+			transition: all 0.4s;
+		}
+
+		&.active {
+			color: darken($main-color, 15%);
+
+			.nav__dot{
+				background-color: darken($main-color, 20%);
+			}
+		}
+
+		&:hover {
+			color: darken($main-color, 30%);
+
+			& *{
+				background-color: darken($main-color, 30%);
+			}
+		}
+	}
+
+	&__register {
+		padding: 0 10px;
+	}
+
+}
+
+.shop {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	@include sizing(220px);
+
+	&.large {
+		@include sizing(500px);
+	}
+
+	&.small {
+		.article__stats {
+			display: none;
+		}
+	}
+}
+
+.article{
+	border: 1px solid $main-color;
+	border-radius: 20px;
+	height: 90%;
+	width: 90%;
+	padding: 1rem;
+
+	&__images {
+		height: 50%;
+		position: relative;
+
+		&-calories {
+			height: 40px;
+			width: 40px;
+			@include centered-content(column);
+			position: absolute;
+			border: 1px solid $main-color;
+			border-radius: 50%;
+			top: 0;
+			right: 0;
+
+			.quantity {
+				font-size: 0.8rem;;
+			}
+
+			.unit {
+				font-size: 0.7rem;;
+			}
+		}
+
+		&.article1 {
+			background-image: url("assets/pictures/maki-menu.jpg");
+			background-size: cover;
+		}
+		&.article2 {
+			
+		}
+		&.article3 {
+			
+		}
+		&.article4 {
+			
+		}
+		&.article5 {
+			
+		}
+	}
+
+	&__title {
+		height: 10%;
+		background-color: yellow;
+	}
+
+	&__stats {
+		height: 10%;
+		background-color: red;
+	}
+
+	&__description {
+		height: 20%;
+		background-color: yellow;
+	}
+
+	&__shopping {
+		height: 10%;
+		background-color: red;
+	}
+}
+
+/*=========
+BUTTON
+=========*/
+
+.button {
+
+	&--log-in {
+		@include button($main-color, 10%);
+	}
+
+	&--sign-up {
+		@include button($main-color, 6%);
 	}
 }
