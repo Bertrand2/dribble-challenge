@@ -1,0 +1,73 @@
+$border-color: #ccc;
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	min-height: 100vw;
+	padding: 20px;
+	background-color: $border-color;
+}
+
+main {
+	width: 100%;
+	min-height: 90vh;
+	background-color: #fff;
+	box-shadow: #ccc 2px 2px 5px;
+	border-radius: 15px;
+
+	position: relative;
+}
+
+.icon {
+	width: 1.5rem;
+}
+
+/*=========
+MIXINS
+=========*/
+
+@mixin centered-content() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*=========
+ASIDE
+=========*/
+
+.aside {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 50px;
+	border-radius: 15px 0 0 15px;
+	border-right: 1px solid $border-color;
+	
+	@include centered-content();
+	
+	&__search {
+		position: absolute;
+		top: 20px;
+	
+		cursor: pointer;
+	}
+	
+	&__opener {
+		background-color: lighten($border-color, 10%);
+		height: 2rem;
+		width: 2rem;
+		border-radius: 20%;
+		cursor: pointer;
+		transition: transform 0.5s ease-in-out;
+	
+		@include centered-content();
+
+		&:hover {
+			transform: rotate(90deg);
+		}
+	}
+}
