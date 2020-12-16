@@ -1,0 +1,56 @@
+$color-background: #8789C0;
+$color-icon: lighten($color-background, 10%);
+
+@mixin centered-content($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	transition: all 0.5s;
+}
+
+body {
+	height: 100vh;
+	background-color: $color-background;
+
+	@include centered-content();
+}
+
+.email {
+	height: 40px;
+	width: max-content;
+	@include centered-content(row);
+
+	&__logo {
+		height: 100%;
+		width: 40px;
+		background-color: $color-icon;
+		@include centered-content(row);
+		position: relative;
+
+		img {
+			position: absolute;
+			width: 75%;
+		}
+
+		.at {
+			opacity: 1;
+		}
+
+		.ok {
+			opacity: 0;
+		}
+	}
+
+	&__input {
+		height: 100%;
+		width: 150px;
+		border: none;
+		padding: 0 1rem;
+	}
+}
