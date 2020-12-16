@@ -53,4 +53,16 @@ body {
 		border: none;
 		padding: 0 1rem;
 	}
+
+	&.valid {
+		.at {
+			opacity: 0;
+			transform: rotate(360deg);
+		}
+
+		.ok {
+			opacity: 1;
+			transform: rotate(360deg);
+		}
+	}
 }

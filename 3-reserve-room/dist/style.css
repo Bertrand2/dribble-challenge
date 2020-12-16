@@ -45,11 +45,11 @@ body {
 }
 .reservation__illustration .suitcase.left {
   left: -40px;
-  bottom: 15px;
+  bottom: 10px;
 }
 .reservation__illustration .suitcase.right {
   right: -40px;
-  bottom: 12px;
+  bottom: 15px;
 }
 .reservation__text {
   height: 100px;
@@ -65,6 +65,7 @@ body {
 }
 .reservation:hover {
   scale: 0.95;
+  cursor: pointer;
 }
 .reservation:hover .reservation__illustration {
   background-color: #afdcfe;
@@ -73,8 +74,8 @@ body {
   opacity: 1;
 }
 .reservation:hover .reservation__illustration .suitcase.left {
-  transform: translate(45px, 0);
+  transform: translate(50px, 0);
 }
 .reservation:hover .reservation__illustration .suitcase.right {
-  transform: translate(-45px, 0);
+  transform: translate(-42px, 0);
 }

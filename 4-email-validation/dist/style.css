@@ -47,3 +47,11 @@ body {
   border: none;
   padding: 0 1rem;
 }
+.email.valid .at {
+  opacity: 0;
+  transform: rotate(360deg);
+}
+.email.valid .ok {
+  opacity: 1;
+  transform: rotate(360deg);
+}
