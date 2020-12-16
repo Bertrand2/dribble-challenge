@@ -5,13 +5,13 @@ var emailRegex = /^([\w-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([\w-]+.)+))
 emailInput.addEventListener("input", function () {
   if (!emailInput.value) {
     document.querySelector("div.email").classList.remove("valid");
-    document.getElementById("at-mail").style.filter = "none";
-    document.getElementById("ok-mail").style.filter = "none";
+    document.getElementById("at-mail").style.filter = "invert(15%)";
+    document.getElementById("ok-mail").style.filter = "invert(15%)";
   } else if (emailRegex.test(emailInput.value)) {
     document.querySelector("div.email").classList.add("valid");
-    document.getElementById("ok-mail").style.filter = "invert(85%) sepia(32%) saturate(862%) hue-rotate(59deg) brightness(97%) contrast(107%)";
+    document.getElementById("ok-mail").style.filter = "invert(11%) sepia(72%) saturate(5469%) hue-rotate(115deg) brightness(94%) contrast(104%)";
   } else {
     document.querySelector("div.email").classList.remove("valid");
-    document.getElementById("at-mail").style.filter = "invert(52%) sepia(14%) saturate(7439%) hue-rotate(327deg) brightness(111%) contrast(104%)";
+    document.getElementById("at-mail").style.filter = "invert(11%) sepia(66%) saturate(7495%) hue-rotate(21deg) brightness(90%) contrast(115%)";
   }
 });
