@@ -45,7 +45,7 @@ MIXINS
 }
 
 @mixin button($color, $intensity, $radius) {
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 0.5rem;
 	border-radius: $radius;
 	width: max-content;
 
@@ -64,8 +64,8 @@ MIXINS
 @mixin sizing($size) {
 	height: 1.5*$size;
 	width: $size;
-	min-height: 1.5*$size;
-	min-width: $size;
+	max-height: 135vw;
+	max-width: 90vw;
 
 	
 }
@@ -184,18 +184,22 @@ SPECIFIC MODIFICATIONS
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-	justify-content: space-between;
+	justify-content: center;
 	flex-wrap: wrap;
+	margin: 10px;
 
-	@include sizing(220px);
+	@include sizing(230px);
 
 	&.large {
-		@include sizing(500px);
+		@include sizing(520px);
 	}
 
 	&.small {
 		.article__stats {
 			display: none;
+		}
+		.article__description {
+			height: 30%;
 		}
 	}
 }
@@ -288,18 +292,15 @@ SPECIFIC MODIFICATIONS
 		justify-content: space-between;
 
 		* {
-			font-size: 1.3rem;
+			font-size: 0.9rem;
+		}
+
+		&-shop img{
+			height: 0.7rem;
 		}
 
 		&-quantity {
 			@include centered-content(row);
-
-			.button {
-				width: 1.5rem; 
-				&:hover{
-					cursor: pointer;
-				}
-			}
 
 			.left {
 				@include button($main-color, 6%, 10px 0 0 10px);
@@ -307,15 +308,46 @@ SPECIFIC MODIFICATIONS
 			}
 
 			.middle {
-				padding: 0.5rem 1rem;
+				padding: 0.5rem 0.5rem;
 				@include centered-content(row);
 				background-color: $main-color;
-				width: 2.5rem;
+				width: 1rem;
 			}
 
 			.right {
 				@include button($main-color, 6%, 0 10px 10px 0);
 				background-color: $main-color;
+			}
+		}
+
+		&.large {
+			* {
+				font-size: 1.3rem;
+			}
+
+			img{
+				height: 1.3rem;
+			}
+	
+			&-quantity {
+				@include centered-content(row);
+	
+				.left {
+					@include button($main-color, 6%, 10px 0 0 10px);
+					background-color: $main-color;
+				}
+	
+				.middle {
+					padding: 0.5rem 1rem;
+					@include centered-content(row);
+					background-color: $main-color;
+					width: 2.5rem;
+				}
+	
+				.right {
+					@include button($main-color, 6%, 0 10px 10px 0);
+					background-color: $main-color;
+				}
 			}
 		}
 	}
