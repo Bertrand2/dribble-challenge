@@ -1,0 +1,94 @@
+$background: #8789C0;
+$background-hover: #7CC6FE;
+$button: lighten($background, 10%);
+$button-hover: lighten($background-hover, 10%);
+
+@mixin centered-content($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	transition: all 0.5s;
+}
+
+body {
+	height: 100vh;
+	background-color: $background;
+
+	@include centered-content();
+}
+
+.reservation {
+	background: unset;
+	border: unset;
+	height: 100px;
+	width: 300px;
+
+	@include centered-content();
+
+	&__illustration {
+		position: relative;
+		height: 100px;
+		width: 100px;
+		background-color: $button;
+		border-radius: 20px 0 0 20px;
+		overflow: hidden;
+
+		@include centered-content();
+
+		.bed {
+			width: 60px;
+		}
+
+		.suitcase {
+			position: absolute;
+			width: 30px;
+			opacity: 0;
+
+			&.left {
+				left: -40px;
+				bottom: 15px;
+			}
+
+			&.right {
+				right: -40px;
+				bottom: 12px;
+			}
+		}
+	}
+
+	&__text {
+		height: 100px;
+		width: 200px;
+		background-color: whitesmoke;
+		border-radius: 0 20px 20px 0;
+		font-size: 1.2rem;
+		font-weight: 600;
+
+		@include centered-content();
+	}
+
+	&:hover {
+		scale: 0.95;
+
+		.reservation__illustration {
+			background-color: $button-hover;
+
+			.suitcase {
+				opacity: 1;
+
+				&.left {
+					transform: translate(45px, 0);
+				}
+				&.right {
+					transform: translate(-45px, 0);
+				}
+			}
+		}
+	}
+}
