@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  background-color: #8789C0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 330px;
+  height: 550px;
+  border-radius: 30px;
+  border: 3px solid #3c3e72;
+  box-shadow: 3px 3px 10px #3c3e72;
+  background-color: #a8aad2;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
