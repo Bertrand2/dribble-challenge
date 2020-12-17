@@ -1,0 +1,256 @@
+$color-1: #f01d87;
+$color-1-light: lighten(#f01d87, 15%);
+$color-2: #a10ca0;
+$color-2-light: lighten(#a10ca0, 15%);
+$color-3: #7501a7;
+$color-3-light: lighten(#7501a7, 15%);
+$color-text: white;
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	transition: all 0.5s ease-in-out;
+	list-style: none;
+	color: $color-text;
+	font-size: 0.9rem;
+}
+
+body {
+	min-height: 100vh;
+	background-image: url("../assets/background.jpeg");
+	background-size: cover;
+}
+
+main {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 70px;
+
+	@include flex(row, center, flex-start);
+	flex-wrap: wrap;
+
+	.banner {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		height: 10rem;
+	}
+}
+
+.article{
+	position: relative;
+	width: 350px;
+	height: 580px;
+	padding: 10px;
+	margin: 30px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-items: flex-start;
+	
+	&__navigator {
+		width: 100%;
+		@include flex(row);
+		flex-wrap: wrap;
+		
+		&-character {
+			width: 48%;
+			height: 65px;
+			border: 1px solid $color-text;
+			
+			div {
+				width: 90%;
+				height: 90%;
+				padding: 3% 5%;
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+
+			&-general {
+				width: 48%;
+				height: 65px;
+				border: 1px solid $color-text;
+				
+				div {
+					width: 90%;
+					height: 90%;
+					padding: 3% 5%;
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					justify-content: space-between;
+				}
+			}
+			
+			:hover {
+				background-color: $color-text;
+				opacity: 0.2;
+				cursor: pointer;
+				
+				span {
+					opacity: 1;
+					color: darken($color-text, 100%);
+				}
+			}
+		}
+	}
+	
+	&__headlines {
+		width: 96%;
+		padding: 2%;
+		@include flex(row,space-between);
+	}
+	
+	&__name-holder {
+		position: absolute;
+		bottom: 0;
+		left: 5px;
+		
+		transform-origin: left;
+		transform: rotate(-90deg);
+		
+		&-dot {
+			position: absolute;
+			height: 10px;
+			width: 10px;
+			top: 15px;
+			left: 20px;
+			border-radius: 50%;
+			background-color: $color-text;
+		}
+
+		p {
+			width: 500px;
+			position: absolute;
+			font-size: 2.4rem;
+			display: none;
+			left: 40px;
+		}
+	}
+	
+	&__description-holder {
+		width: 75%;
+		padding: 2%;
+
+		div {
+			display: none;
+			width: 100%;
+			
+			* {
+				text-align: justify;
+				margin-bottom: 5px;
+				font-size: 0.8rem;
+			}
+		}
+
+	}
+
+	&__picture-holder {
+		position: absolute;
+		bottom: 15px;
+		right: 0;
+		width: 75%;
+		padding: 2%;
+		@include flex();
+
+		img {
+			max-height: 110px;
+			max-width: 110px;
+			display: none;
+		}
+	}
+
+	&.left {
+		background-color: $color-1;
+
+		.article__navigator-character.active {
+			background-color: $color-text;
+			* {
+				color: $color-1
+			}
+		}
+	}
+
+	&.middle {
+		background-color: $color-3;
+
+		.article__title-holder {
+			bottom: 0;
+			left: 5px;
+			width: 100%;
+			
+			&-dot {
+				position: absolute;
+				height: 14px;
+				width: 14px;
+				top: 24px;
+				left: 20px;
+				border-radius: 50%;
+				background-color: $color-text;
+			}
+			
+			p {
+				@include flex(column);
+				width: 100%;
+				span {
+					width: 100%;
+					letter-spacing: 5px;
+				}
+			}
+
+			.right-align {
+				align-self: flex-end;
+				text-align: right;
+			}
+			
+			.left-align {
+				align-self: flex-start;
+				text-align: left;
+			}
+
+			span {
+				width: 250px;
+				font-size: 2.4rem;
+				left: 40px;
+			}
+		}
+
+		.article__description-general {
+			@include flex(column);
+		}
+	}
+
+	&.right {
+		background-color: $color-2;
+
+		.article__navigator-character.active {
+			background-color: $color-text;
+			* {
+				color: $color-2;
+			}
+		}
+	}
+
+	.article__name.active {
+		display: block;
+	}
+
+	.article__description.active {
+		display: inline;
+	}
+
+	.article__picture.active {
+		display: block;
+	}
+}

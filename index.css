@@ -1,6 +1,15 @@
+@font-face {
+    font-family: 'CooperHewitt';
+    src: url('assets/fonts/CooperHewitt-Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
+	color: #222;
+	font-family: CooperHewitt;
 }
 
 body {
@@ -8,16 +17,17 @@ body {
 	background-color: #938BA1;
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
 ul {
-	width: 600px;
+	width: 700px;
 	max-width: 95vw;
 
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 }
@@ -25,11 +35,12 @@ ul {
 li {
 	width: 100px;
 	height: 100px;
-	margin: 10px;
-
+	margin: 5px;
+	padding: 10px;
+	
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	align-items: flex-start;
+	justify-content: flex-start;
 }
 
 a {

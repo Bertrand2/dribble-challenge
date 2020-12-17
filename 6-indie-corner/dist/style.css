@@ -1,0 +1,223 @@
+* {
+  padding: 0;
+  margin: 0;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("../assets/background.jpeg");
+  background-size: cover;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+main .banner {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 10rem;
+}
+
+.article {
+  position: relative;
+  width: 350px;
+  height: 580px;
+  padding: 10px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-items: flex-start;
+}
+.article__navigator {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.article__navigator-character {
+  width: 48%;
+  height: 65px;
+  border: 1px solid white;
+}
+.article__navigator-character div {
+  width: 90%;
+  height: 90%;
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.article__navigator-character-general {
+  width: 48%;
+  height: 65px;
+  border: 1px solid white;
+}
+.article__navigator-character-general div {
+  width: 90%;
+  height: 90%;
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.article__navigator-character :hover {
+  background-color: white;
+  opacity: 0.2;
+  cursor: pointer;
+}
+.article__navigator-character :hover span {
+  opacity: 1;
+  color: black;
+}
+.article__headlines {
+  width: 96%;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.article__name-holder {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  transform-origin: left;
+  transform: rotate(-90deg);
+}
+.article__name-holder-dot {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top: 15px;
+  left: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+.article__name-holder p {
+  width: 500px;
+  position: absolute;
+  font-size: 2.4rem;
+  display: none;
+  left: 40px;
+}
+.article__description-holder {
+  width: 75%;
+  padding: 2%;
+}
+.article__description-holder div {
+  display: none;
+  width: 100%;
+}
+.article__description-holder div * {
+  text-align: justify;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.article__picture-holder {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  width: 75%;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.article__picture-holder img {
+  max-height: 110px;
+  max-width: 110px;
+  display: none;
+}
+.article.left {
+  background-color: #f01d87;
+}
+.article.left .article__navigator-character.active {
+  background-color: white;
+}
+.article.left .article__navigator-character.active * {
+  color: #f01d87;
+}
+.article.middle {
+  background-color: #7501a7;
+}
+.article.middle .article__title-holder {
+  bottom: 0;
+  left: 5px;
+  width: 100%;
+}
+.article.middle .article__title-holder-dot {
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  top: 24px;
+  left: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+.article.middle .article__title-holder p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.article.middle .article__title-holder p span {
+  width: 100%;
+  letter-spacing: 5px;
+}
+.article.middle .article__title-holder .right-align {
+  align-self: flex-end;
+  text-align: right;
+}
+.article.middle .article__title-holder .left-align {
+  align-self: flex-start;
+  text-align: left;
+}
+.article.middle .article__title-holder span {
+  width: 250px;
+  font-size: 2.4rem;
+  left: 40px;
+}
+.article.middle .article__description-general {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.article.right {
+  background-color: #a10ca0;
+}
+.article.right .article__navigator-character.active {
+  background-color: white;
+}
+.article.right .article__navigator-character.active * {
+  color: #a10ca0;
+}
+.article .article__name.active {
+  display: block;
+}
+.article .article__description.active {
+  display: inline;
+}
+.article .article__picture.active {
+  display: block;
+}
