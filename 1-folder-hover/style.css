@@ -9,6 +9,8 @@ body {
 	width: 128px;
 	height: 128px;
 	position: relative;
+	background-color: #aaeeaa;
+	border-radius: 20%;
 }
 
 .folder__back {
