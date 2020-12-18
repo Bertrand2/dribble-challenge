@@ -1,8 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+
 * {
   padding: 0;
   margin: 0;
   transition: all 0.5s ease-in-out;
   list-style: none;
+}
+* button {
+  border: none;
+  background: none;
 }
 
 body {
@@ -18,7 +26,7 @@ main {
   width: 330px;
   height: 550px;
   border-radius: 30px;
-  border: 3px solid #3c3e72;
+  border: 6px solid black;
   box-shadow: 3px 3px 10px #3c3e72;
   background-color: #a8aad2;
   overflow: hidden;
@@ -27,4 +35,95 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+main .page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+main .page > * {
+  height: 100%;
+  width: 100%;
+}
+main .home-wrapper {
+  position: relative;
+}
+main .home-background {
+  position: absolute;
+  background-image: url("../assets/background.webp");
+  background-position: center;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: brightness(35%);
+  -moz-filter: brightness(35%);
+  -ms-filter: brightness(35%);
+  -o-filter: brightness(35%);
+  filter: brightness(35%);
+}
+main .home {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  -o-filter: grayscale(0);
+  filter: grayscale(0);
+  -webkit-filter: invert(100%);
+  -moz-filter: invert(100%);
+  -ms-filter: invert(100%);
+  -o-filter: invert(100%);
+  filter: invert(100%);
+}
+main .home__banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(2.5);
+}
+main .home__logo {
+  width: 25%;
+  transform: scale(1.5);
+  margin-bottom: 1rem;
+}
+main .home__buttons {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .home__buttons-login {
+  width: 10rem;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #666666;
+  border: 1px solid black;
+}
+main .home__buttons-login:hover {
+  cursor: pointer;
+}
+main .home__buttons-signup {
+  width: 10rem;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: none;
+  border: 1px solid black;
+}
+main .home__buttons-signup:hover {
+  cursor: pointer;
+}
+main .home .entered {
+  transform-origin: top;
+  transform: rotateX(90deg);
 }

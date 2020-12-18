@@ -2,35 +2,122 @@ $color-background: #8789C0;
 $color-phone: lighten($color-background, 10%);
 $color-dot-wrong: #b84e4e;
 
-@mixin centered-content($direction: row) {
+@mixin flex($direction: row, $justify: center, $align: center) {
 	display: flex;
 	flex-direction: $direction;
-	justify-content: center;
-	align-items: center;
+	justify-content: $justify;
+	align-items: $align;
 }
+
+@mixin filter($filter-type,$filter-amount) { 
+	-webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+	-moz-filter: $filter-type+unquote('(#{$filter-amount})');
+	-ms-filter: $filter-type+unquote('(#{$filter-amount})');
+	-o-filter: $filter-type+unquote('(#{$filter-amount})');
+	filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin button($bg-color: none, $b-color: black, $width: auto){
+	width: $width;
+	margin: 0.3rem;
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+	background-color: $bg-color;
+	border: 1px solid $b-color;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+html { font-size: 62.5%; }
 
 * {
 	padding: 0;
 	margin: 0;
 	transition: all 0.5s ease-in-out;
 	list-style: none;
+
+	button {
+		border: none;
+		background: none;
+	}
 }
 
 body {
 	height: 100vh;
 	background-color: $color-background;
 
-	@include centered-content();
+	@include flex();
 }
 
 main {
 	width: 330px;
 	height: 550px;
 	border-radius: 30px;
-	border: 3px solid darken($color-background, 30%);
+	border: 6px solid black; //darken($color-background, 30%);
 	box-shadow: 3px 3px 10px darken($color-background, 30%);
 	background-color: $color-phone;
 	overflow: hidden;
 	position: relative;
-	@include centered-content();
+	@include flex();
+
+	.page {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		&>* {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.home-wrapper {
+		position: relative;
+	}
+
+	.home-background {
+		position: absolute;
+		background-image: url("../assets/background.webp");
+		background-position: center;
+		@include filter(grayscale, 100%);
+		@include filter(brightness, 35%);
+	}
+	
+	.home {
+		position: absolute;
+		z-index: 2;
+		@include flex(column);
+		@include filter(grayscale, 0);
+		@include filter(invert, 100%);
+
+		&__banner {
+			@include flex(column);
+			transform: scale(2.5);
+		}
+		&__logo {
+			width: 25%;
+			transform: scale(1.5);
+			margin-bottom: 1rem;
+		}
+
+		&__buttons {
+			position: absolute;
+			bottom: 3rem;
+			@include flex(column);
+
+			&-login {
+				@include button(#666666, black, 10rem);
+			}
+
+			&-signup {
+				@include button(none, black, 10rem);
+			}
+		}
+
+		.entered {
+			transform-origin: top;
+			transform: rotateX(90deg);
+		}
+	}
 }
