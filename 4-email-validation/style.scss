@@ -33,17 +33,9 @@ body {
 		@include centered-content(row);
 		position: relative;
 
-		img {
+		svg {
 			position: absolute;
 			width: 75%;
-		}
-
-		.at {
-			opacity: 1;
-		}
-
-		.ok {
-			opacity: 0;
 		}
 	}
 
@@ -55,14 +47,75 @@ body {
 	}
 
 	&.valid {
-		.at {
+		.at * {
 			opacity: 0;
-			transform: rotate(360deg);
+			animation: reverseAnimate 4s ease-in-out;
+			// stroke-dashoffset: 1800;
 		}
 
-		.ok {
-			opacity: 1;
-			transform: rotate(360deg);
+		.ok * {
+			opacity: 100%;
+			z-index: 1;
+			animation: animate 6s ease-in-out;
+			// stroke-dashoffset: 0;
 		}
+	}
+
+	&.invalid {
+		.at * {
+			opacity: 100%;
+			z-index: 1;
+			animation: animate 6s ease-in-out;
+			// stroke-dashoffset: 0;
+		}
+		
+		.ok * {
+			opacity: 0;
+			animation: reverseAnimate 4s ease-in-out;
+			// stroke-dashoffset: 1800;
+		}
+	}
+
+	&.empty {
+		.at * {
+			opacity: 100%;
+			z-index: 1;
+			animation: animate 6s ease-in-out;
+			// stroke-dashoffset: 0;
+		}
+		
+		.ok * {
+			opacity: 0;
+			animation: reverseAnimate 4s ease-in-out;
+			// stroke-dashoffset: 1800;
+		}
+	}
+}
+
+svg * {
+	position: relative;
+	transition: all 5s;
+	transition: opacity 1s;
+	stroke: black;
+	stroke-dasharray: 1800;
+}
+
+@keyframes animate {
+	0% {
+		stroke-dashoffset: 1800;
+	}
+	
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes reverseAnimate {
+	0% {
+		stroke-dashoffset: 0;
+	}
+	
+	100% {
+		stroke-dashoffset: 1800;
 	}
 }

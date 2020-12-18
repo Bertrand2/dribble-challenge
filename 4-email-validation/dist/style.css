@@ -31,15 +31,9 @@ body {
   align-items: center;
   position: relative;
 }
-.email__logo img {
+.email__logo svg {
   position: absolute;
   width: 75%;
-}
-.email__logo .at {
-  opacity: 1;
-}
-.email__logo .ok {
-  opacity: 0;
 }
 .email__input {
   height: 100%;
@@ -47,11 +41,55 @@ body {
   border: none;
   padding: 0 1rem;
 }
-.email.valid .at {
+.email.valid .at * {
   opacity: 0;
-  transform: rotate(360deg);
+  animation: reverseAnimate 4s ease-in-out;
 }
-.email.valid .ok {
-  opacity: 1;
-  transform: rotate(360deg);
+.email.valid .ok * {
+  opacity: 100%;
+  z-index: 1;
+  animation: animate 6s ease-in-out;
+}
+.email.invalid .at * {
+  opacity: 100%;
+  z-index: 1;
+  animation: animate 6s ease-in-out;
+}
+.email.invalid .ok * {
+  opacity: 0;
+  animation: reverseAnimate 4s ease-in-out;
+}
+.email.empty .at * {
+  opacity: 100%;
+  z-index: 1;
+  animation: animate 6s ease-in-out;
+}
+.email.empty .ok * {
+  opacity: 0;
+  animation: reverseAnimate 4s ease-in-out;
+}
+
+svg * {
+  position: relative;
+  transition: all 5s;
+  transition: opacity 1s;
+  stroke: black;
+  stroke-dasharray: 1800;
+}
+
+@keyframes animate {
+  0% {
+    stroke-dashoffset: 1800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reverseAnimate {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1800;
+  }
 }
