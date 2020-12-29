@@ -5,29 +5,92 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Places</title>
 	<link rel="stylesheet" href="dist/style.css">
+	<link rel="stylesheet" href="leaflet/leaflet.css">
 </head>
 <body>
 	<main>
 		<div class="page home-wrapper">
-			<div class="home-background"></div>
-			<div class="home">
+			<div id="homeBackground" class="home-background"></div>
+			<div id="home" class="home">
 				<div class="home__banner">
 					<img src="assets/map-pin-fill.svg" alt="" class="home__logo">
 					<h1 class="home__title">Places</h1>
 				</div>
-				<form class="home__buttons">
-					<button class="button home__buttons-login">Log in</button>
-					<button class="button home__buttons-signup">Sign up</button>
-				</form>
+				<div class="home__buttons">
+					<button id="login" class="button home__buttons-login">Log in</button>
+					<button id="signup" class="button home__buttons-signup">Sign up</button>
+				</div>
 			</div>
 		</div>
-		<div class="page favorites">
-
+		<div id="favorites" class="page favorites">
+			<section class="favorites__header">
+				<h2 class="favorites__header-title">My favorite<br><strong>Places</strong></h2>
+				<div class="favorites__header-profile"></div>
+			</section>
+			<section class="favorites__categories">
+				<button id="buttonRestaurant" class="favorites__category">
+					<div  class="favorites__category-icon-holder">
+						<img src="assets/restaurant-line.svg" alt="" class="favorites__category-icon">
+					</div>
+					<p class="favorites__category-name">Restaurant</p>
+					<p class="favorites__category-amount">0</p>
+				</button>
+				<button id="buttonShopping" class="favorites__category">
+					<div  class="favorites__category-icon-holder">
+						<img src="assets/shopping-basket-2-line.svg" alt="" class="favorites__category-icon">
+					</div>
+					<p class="favorites__category-name">Shopping</p>
+					<p class="favorites__category-amount">0</p>
+				</button>
+				<button id="buttonPub" class="favorites__category">
+					<div  class="favorites__category-icon-holder">
+						<img src="assets/beer-solid.svg" alt="" class="favorites__category-icon">
+					</div>
+					<p class="favorites__category-name">Pub</p>
+					<p class="favorites__category-amount">0</p>
+				</button>
+				<button id="buttonLondon" class="favorites__category">
+					<div  class="favorites__category-icon-holder">
+						<img src="assets/trash-2-outline.svg" alt="" class="favorites__category-icon">
+					</div>
+					<p class="favorites__category-name">London</p>
+					<p class="favorites__category-amount">0</p>
+				</button>
+			</section>
 		</div>
 		<div class="page map">
-
+			<!-- <iframe frameborder="0" scrolling="no" src="https://www.openstreetmap.org/export/embed.html?bbox=5.558073520660401%2C50.6423442569469%2C5.582020282745362%2C50.650045516838794&amp;layer=mapnik" id="map" class="map__map">SLT XD</iframe> -->
+			<div id="mapid" class="map__map"></div>
+		</div>
+		<div class="description">
+			<div class="description__menu">
+				<img src="assets/arrow-back.svg" alt="" class="description__menu-back">
+				<div class="description__menu-category">
+					<img src="assets/restaurant-line.svg" alt="" class="description__menu-category">
+					<p>Restaurant</p>
+				</div>
+				<img src="assets/message-line.svg" alt="" class="description__menu-back">
+			</div>
+			<div class="description__infos"></div>
+			<div class="description__carrousel"></div>
+		</div>
+		<div class="menu">
+			<div id="list" class="menu__list">
+				<img src="assets/list.svg" alt="">
+				<p>List</p>
+			</div>
+			<div class="menu__add">
+				+
+			</div>
+			<div class="menu__settings">
+				<img src="assets/settings.svg" alt="">
+				<p>Settings</p>
+			</div>
 		</div>
 	</main>
+	<script src="leaflet/leaflet.js"></script>
+	<script src="tile.stamen.js"></script>
+	<script src="locations.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>

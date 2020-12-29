@@ -1,6 +1,7 @@
 $color-background: #8789C0;
-$color-phone: lighten($color-background, 10%);
+$color-phone: darken($color-background, 45%);
 $color-dot-wrong: #b84e4e;
+$color-text: whitesmoke;
 
 @mixin flex($direction: row, $justify: center, $align: center) {
 	display: flex;
@@ -9,7 +10,7 @@ $color-dot-wrong: #b84e4e;
 	align-items: $align;
 }
 
-@mixin filter($filter-type,$filter-amount) { 
+@mixin filter($filter-type, $filter-amount) { 
 	-webkit-filter: $filter-type+unquote('(#{$filter-amount})');
 	-moz-filter: $filter-type+unquote('(#{$filter-amount})');
 	-ms-filter: $filter-type+unquote('(#{$filter-amount})');
@@ -52,12 +53,11 @@ body {
 }
 
 main {
-	width: 330px;
-	height: 550px;
+	width: 33rem;
+	height: 65rem;
 	border-radius: 30px;
-	border: 6px solid black; //darken($color-background, 30%);
+	border: 6px solid darken($color-phone, 30%);
 	box-shadow: 3px 3px 10px darken($color-background, 30%);
-	background-color: $color-phone;
 	overflow: hidden;
 	position: relative;
 	@include flex();
@@ -66,27 +66,31 @@ main {
 		position: absolute;
 		height: 100%;
 		width: 100%;
+	}
+
+	.home-wrapper {
+		position: relative;
 		&>* {
 			height: 100%;
 			width: 100%;
 		}
 	}
 
-	.home-wrapper {
-		position: relative;
-	}
-
 	.home-background {
+		height: 120%;
 		position: absolute;
+		z-index: 9;
+		transform: translate(0, -8%);
 		background-image: url("../assets/background.webp");
 		background-position: center;
+		background-size: cover;
 		@include filter(grayscale, 100%);
 		@include filter(brightness, 35%);
 	}
 	
 	.home {
 		position: absolute;
-		z-index: 2;
+		z-index: 10;
 		@include flex(column);
 		@include filter(grayscale, 0);
 		@include filter(invert, 100%);
@@ -119,5 +123,138 @@ main {
 			transform-origin: top;
 			transform: rotateX(90deg);
 		}
+	}
+
+	.favorites {
+		@include flex(column, flex-start);
+		background-color: $color-phone;
+		height: 120%;
+		position: absolute;
+		z-index: 7;
+		transform: translate(0, -8%);
+
+		&__header {
+			margin: 20rem 0 1rem 0;
+			width: 90%;
+			@include flex(row, space-between);
+
+			&-title {
+				color: $color-text;
+			}
+		}
+
+		&__categories {
+			width: 100%;
+			@include flex(column);
+		}
+		
+		&__category {
+			@include button(darken($color-phone, 5%), none, 90%);
+			@include flex(row);
+			margin: 1.5rem 0;
+			padding-left: 1rem;
+			height: 5rem;
+
+			&-icon-holder {
+				width: 3rem;
+				height: 3rem;
+				border: 2px solid $color-text;
+				border-radius: 50%;
+				@include flex();
+			}
+			
+			&-icon {
+				height: 2rem;
+				width: 2rem;
+				@include filter(invert, 100%);
+			}
+
+			&-name {
+				width: 70%;
+				color: $color-text;
+				font-size: 2rem;
+				text-align: left;
+				margin-left: 1rem;
+			}
+
+			&-amount {
+				width: 10%;
+				color: darken($color-text, 50%);
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.opened {
+		animation: opening 1s ease-in-out;
+		animation-fill-mode: forwards;
+	}
+
+	.map {
+		position: absolute;
+		z-index: 5;
+		&__map {
+			width: 100%;
+			height: 88%; 
+
+
+		}
+	}
+
+	.menu {
+		width: 100%;
+		height: 8rem;
+		position: absolute;
+		bottom: 0;
+		z-index: 8;
+		background-color: darken($color-phone, 10%);
+		border-radius: 1rem 1rem 0 0;
+		@include flex(row, space-evenly);
+
+		&__list {
+			width: 25%;
+			font-size: 1.5rem;
+			@include flex(column);
+			@include filter(invert, 80%);
+			cursor: pointer;
+		}
+
+		&__add {
+			margin-top: -4rem;
+			width: 6rem;
+			height: 6rem;
+			border-radius: 50%;
+			background-color: lighten($color-phone, 30%);
+			font-size: 3rem;
+			font-weight: 600;
+			color: $color-text;
+			@include flex();
+			cursor: pointer;
+		}
+
+		&__settings {
+			width: 25%;
+			font-size: 1.3rem;
+			@include flex(column);
+			@include filter(invert, 80%);
+			cursor: pointer;
+		}
+
+		img {
+			width: 2.5rem;
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+@keyframes opening {
+	0% {
+		top: 0;
+	}
+	10% {
+		top: 2%;
+	}
+	100% {
+		top: -150%;
 	}
 }
