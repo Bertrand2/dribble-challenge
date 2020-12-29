@@ -30,30 +30,30 @@
 			<section class="favorites__categories">
 				<button id="buttonRestaurant" class="favorites__category">
 					<div  class="favorites__category-icon-holder">
-						<img src="assets/restaurant-line.svg" alt="" class="favorites__category-icon">
+						<img src="assets/restaurants.svg" alt="" class="favorites__category-icon">
 					</div>
-					<p class="favorites__category-name">Restaurant</p>
+					<p class="favorites__category-name">Restaurants</p>
 					<p class="favorites__category-amount">0</p>
 				</button>
 				<button id="buttonShopping" class="favorites__category">
 					<div  class="favorites__category-icon-holder">
-						<img src="assets/shopping-basket-2-line.svg" alt="" class="favorites__category-icon">
+						<img src="assets/shopping.svg" alt="" class="favorites__category-icon">
 					</div>
 					<p class="favorites__category-name">Shopping</p>
 					<p class="favorites__category-amount">0</p>
 				</button>
 				<button id="buttonPub" class="favorites__category">
 					<div  class="favorites__category-icon-holder">
-						<img src="assets/beer-solid.svg" alt="" class="favorites__category-icon">
+						<img src="assets/pubs.svg" alt="" class="favorites__category-icon">
 					</div>
-					<p class="favorites__category-name">Pub</p>
+					<p class="favorites__category-name">Pubs</p>
 					<p class="favorites__category-amount">0</p>
 				</button>
 				<button id="buttonLondon" class="favorites__category">
 					<div  class="favorites__category-icon-holder">
-						<img src="assets/trash-2-outline.svg" alt="" class="favorites__category-icon">
+						<img src="assets/trashes.svg" alt="" class="favorites__category-icon">
 					</div>
-					<p class="favorites__category-name">London</p>
+					<p class="favorites__category-name">Trashes</p>
 					<p class="favorites__category-amount">0</p>
 				</button>
 			</section>
@@ -62,17 +62,34 @@
 			<!-- <iframe frameborder="0" scrolling="no" src="https://www.openstreetmap.org/export/embed.html?bbox=5.558073520660401%2C50.6423442569469%2C5.582020282745362%2C50.650045516838794&amp;layer=mapnik" id="map" class="map__map">SLT XD</iframe> -->
 			<div id="mapid" class="map__map"></div>
 		</div>
-		<div class="description">
+		<div id="description" class="description">
 			<div class="description__menu">
-				<img src="assets/arrow-back.svg" alt="" class="description__menu-back">
+				<img src="assets/arrow-back.svg" alt="" class="description__menu-action" id="back">
 				<div class="description__menu-category">
-					<img src="assets/restaurant-line.svg" alt="" class="description__menu-category">
-					<p>Restaurant</p>
+					<div class="description__menu-category-holder">
+						<img src="assets/restaurants.svg" alt="" class="description__menu-category-icon" id="descIcon">
+					</div>
+					<p class="description__menu-category-title" id="descCategory">Restaurants</p>
 				</div>
-				<img src="assets/message-line.svg" alt="" class="description__menu-back">
+				<img src="assets/message-line.svg" alt="" class="description__menu-action">
 			</div>
-			<div class="description__infos"></div>
-			<div class="description__carrousel"></div>
+			<div class="description__infos">
+				<h2 class="description__infos-name" id="descName">Big Frite</h2>
+				<p class="description__infos-address" id="descAddress">116, rue Saint-Denis, 4000 Liège</p>
+				<div class="description__infos-tags" id="descTags"><p class="description__infos-tag">Frites</p></div>
+			</div>
+			<div class="description__carrousel">
+				<div class="description__carrousel-pictures">
+					<img src="" id="descPictureLeft" alt="" class="description__carrousel-picture-left">
+					<img src="" id="descPictureMiddle" alt="" class="description__carrousel-picture-middle">
+					<img src="" id="descPictureRight" alt="" class="description__carrousel-picture-right">
+				</div>
+				<div class="description__carrousel-dots">
+					<div class="description__carrousel-dot"></div>
+					<div class="description__carrousel-dot"></div>
+					<div class="description__carrousel-dot"></div>
+				</div>
+			</div>
 		</div>
 		<div class="menu">
 			<div id="list" class="menu__list">

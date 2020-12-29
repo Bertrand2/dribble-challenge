@@ -39,6 +39,11 @@ html { font-size: 62.5%; }
 	transition: all 0.5s ease-in-out;
 	list-style: none;
 
+	p {
+		color: $color-text;
+		font-size: 1.4rem;
+	}
+
 	button {
 		border: none;
 		background: none;
@@ -64,20 +69,15 @@ main {
 
 	.page {
 		position: absolute;
+		min-height: 100%;
+		min-width: 100%;
 		height: 100%;
 		width: 100%;
 	}
 
-	.home-wrapper {
-		position: relative;
-		&>* {
-			height: 100%;
-			width: 100%;
-		}
-	}
-
 	.home-background {
 		height: 120%;
+		width: 100%;
 		position: absolute;
 		z-index: 9;
 		transform: translate(0, -8%);
@@ -89,6 +89,8 @@ main {
 	}
 	
 	.home {
+		height: 100%;
+		width: 100%;
 		position: absolute;
 		z-index: 10;
 		@include flex(column);
@@ -166,12 +168,11 @@ main {
 			&-icon {
 				height: 2rem;
 				width: 2rem;
-				@include filter(invert, 100%);
+				@include filter(invert, 80%);
 			}
 
 			&-name {
 				width: 70%;
-				color: $color-text;
 				font-size: 2rem;
 				text-align: left;
 				margin-left: 1rem;
@@ -195,9 +196,125 @@ main {
 		z-index: 5;
 		&__map {
 			width: 100%;
-			height: 88%; 
+			height: 88%;
+		}
+	}
 
+	.description {
+		position: absolute;
+		z-index: 6;
+		width: 100%;
+		min-height: 45rem;
+		background-color: $color-phone;
+		transform: translateY(263%);
 
+		&__menu {
+			@include flex(row, space-evenly);
+			width: 100%;
+
+			&-action {
+				width: 2rem;
+				@include filter(invert, 80%);
+				cursor: pointer;
+			}
+
+			&-category {
+				@include flex(column);
+				margin-top: -2.5rem;
+				width: 8rem;
+				background-color: $color-phone;
+				border-radius: 4rem;
+
+				&-holder {
+					width: 6rem;
+					height: 6rem;
+					margin-top: .5rem;
+					border: 4px solid $color-text;
+					border-radius: 50%;
+					background-color: $color-phone;
+					@include flex();
+				}
+				
+				&-icon {
+					width: 4rem;
+					height: 4rem;
+					@include filter(invert, 80%);
+				}
+
+				&-title {
+					font-size: 1.5rem;
+					margin-top: 0.5rem;
+					word-wrap: none;
+				}
+			}
+		}
+
+		&__infos {
+			@include flex(column);
+
+			&-name {
+				margin-top: 1rem;
+				font-size: 2.5rem;
+				color: $color-text;
+			}
+			&-address {
+				margin-top: 0.3rem;
+				color: darken($color-text, 50%);
+			}
+			&-tags {
+				margin-top: 0.5rem;
+				@include flex(row);
+			}
+			&-tag {
+				color: $color-text;
+				font-size: 1.2rem;
+				padding: 0.7rem 1.1rem;
+				background-color: darken($color-phone, 10%);
+				border-radius: 5rem;
+			}
+		}
+
+		&__carrousel {
+			width: 100%;
+			height: 18rem;
+			@include flex(column);
+
+			&-pictures {
+				@include flex();
+				position: relative;
+				width: 100%;
+			}
+			&-picture-left {
+				left: -35%;
+				position: absolute;
+				margin: 0 1rem;
+				height: 10rem;
+				border-radius: 1rem;
+			}
+			&-picture-middle {
+				position: absolute;
+				margin: 0 1rem;
+				height: 15rem;
+				border-radius: 1rem;
+			}
+			&-picture-right {
+				right: -35%;
+				position: absolute;
+				margin: 0 1rem;
+				height: 10rem;
+				border-radius: 1rem;
+			}
+
+			&-dots {
+				@include flex();
+			}
+			&-dot {
+				margin: 1rem 1rem 0;
+				height: 1rem;
+				width: 1rem;
+				background-color: $color-background;
+				border-radius: 50%;
+			}
 		}
 	}
 
